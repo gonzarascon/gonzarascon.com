@@ -1,0 +1,9 @@
+{
+  "name": "gonzarascon.com",
+  "version": "1.0.0",
+  "description": "Personal Website",
+  "main": "index.js",
+  "repository": "git@github.com:gonzarascon/gonzarascon.com.git",
+  "author": "gonzarascon <gonzarascon@gmail.com>",
+  "license": "MIT"
+}
