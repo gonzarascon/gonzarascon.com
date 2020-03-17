@@ -5,14 +5,14 @@ const isServer = typeof window === 'undefined';
 const WebFont = !isServer ? require('webfontloader') : null;
 
 export default function MyApp({ Component, pageProps }) {
-  //   useEffect(() => {
-  //     WebFont.load({
-  //       custom: {
-  //         families: ['Geometrica', 'Barlow'],
-  //         urls: ['/fonts/geometrica.css', '/fonts/barlow.css'],
-  //       },
-  //     });
-  //   }, []);
+  useEffect(() => {
+    WebFont.load({
+      custom: {
+        families: ['Work Sans'],
+        urls: ['/fonts/workSans.css'],
+      },
+    });
+  }, []);
 
   return (
     <>
@@ -29,7 +29,7 @@ export default function MyApp({ Component, pageProps }) {
       <style jsx>
         {`
           :global(html.wf-active > body) {
-            font-family: 'Geometrica', 'Arial', 'Helvetica', sans-serif;
+            font-family: 'WorkSans', 'Arial', 'Helvetica', sans-serif;
           }
         `}
       </style>

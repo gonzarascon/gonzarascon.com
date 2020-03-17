@@ -13,4 +13,17 @@ export const Wrapper = styled.div`
 export const GridContainer = styled.section`
   width: 100%;
   height: 100%;
+
+  max-width: calc(100% - 280px);
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  @media ${breakpoints.mediumDevice} {
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 16px;
+    padding: 100px 0;
+  }
 `;
