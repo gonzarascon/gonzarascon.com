@@ -21,7 +21,7 @@ export default function MyApp({ Component, pageProps }) {
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
-        <link rel="stylesheet" href="/main.css" />
+        <link rel="stylesheet" href="./reset.css" />
 
         <title>Gonzalo Rascón — Web Developer</title>
       </Head>

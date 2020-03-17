@@ -23,9 +23,3 @@ export const Utils = {
   calculateRem: size => `${size / 16}rem`,
   customBreakpoint: min => `(min-width: ${min}px)`,
 };
-
-export const API = {
-  key: '0cb900a69dfd891c212b503ccf8af016-us4',
-  listId: '8564cb4448',
-  dataCenter: 'us4',
-};
