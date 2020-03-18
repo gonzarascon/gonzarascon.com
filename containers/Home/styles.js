@@ -34,6 +34,7 @@ export const GridContainer = styled.section`
 export const Welcome = styled.div`
   display: grid;
   grid-gap: 50px;
+  width: 100%;
   @media ${breakpoints.mediumDevice} {
     grid-column: 3/ 11;
     grid-template-columns: 300px 1fr;
@@ -43,7 +44,7 @@ export const Welcome = styled.div`
 export const WelcomeTextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: flex-start;
   align-self: center;
 `;
 
@@ -57,8 +58,20 @@ export const MovingText = styled(motion.p)`
   margin-top: 15px;
   margin-left: 10px;
   height: 80px;
-  font-size: ${calculateRem(30)};
+  font-size: ${calculateRem(35)};
   width: 90%;
   color: ${readColor(colors.lightCyan)};
   font-weight: 300;
+`;
+
+export const BottomSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const Features = styled.span`
+  font-size: ${calculateRem(32)};
+  color: ${readColor(colors.lightCyan)};
+  text-align: center;
 `;
