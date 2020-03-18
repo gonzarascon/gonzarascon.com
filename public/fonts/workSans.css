@@ -21,3 +21,11 @@
   font-weight: 600;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('WorkSans-Light.woff2') format('woff2'),
+    url('WorkSans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}

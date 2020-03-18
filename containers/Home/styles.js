@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { breakpoints, colors, Utils } from 'constants';
 
 const { readColor, calculateRem } = Utils;
@@ -23,7 +24,40 @@ export const GridContainer = styled.section`
 
   @media ${breakpoints.mediumDevice} {
     grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 55% 1fr;
     grid-column-gap: 16px;
     padding: 100px 0;
   }
+`;
+
+export const Welcome = styled.div`
+  display: grid;
+  grid-gap: 50px;
+  @media ${breakpoints.mediumDevice} {
+    grid-column: 3/ 11;
+    grid-template-columns: 300px 1fr;
+  }
+`;
+
+export const WelcomeTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: center;
+`;
+
+export const Name = styled(motion.h1)`
+  font-size: ${calculateRem(100)};
+  color: ${readColor(colors.lightCyan)};
+  font-weight: bolder;
+`;
+
+export const MovingText = styled(motion.p)`
+  margin-top: 15px;
+  margin-left: 10px;
+  height: 80px;
+  font-size: ${calculateRem(30)};
+  width: 90%;
+  color: ${readColor(colors.lightCyan)};
+  font-weight: 300;
 `;
