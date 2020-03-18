@@ -33,7 +33,7 @@ function Home() {
       y: 0,
       opacity: 1,
       transition: {
-        delay: 0.5,
+        delay: 1,
       },
     },
     hidden: {
@@ -44,6 +44,10 @@ function Home() {
       textShadow: '6px 4px 0px #0E153A',
       transition: {
         delay: 0.5,
+        type: 'spring',
+        mass: 1.5,
+        stiffness: 120,
+        velocity: 2,
       },
     },
   };
@@ -52,7 +56,7 @@ function Home() {
     visible: {
       opacity: 1,
       transition: {
-        delay: 0.75,
+        delay: 1.25,
       },
     },
     hidden: {
@@ -64,6 +68,7 @@ function Home() {
     'is creating awesome <br /> web experiences✨.',
     `probably is eating pizza 🍕.`,
     'is thinking in new projects.',
+    'is playing with his dogs 🐶.',
   ];
 
   return (

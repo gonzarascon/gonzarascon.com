@@ -34,6 +34,11 @@ const ButtonBox = styled.button`
       cursor: pointer;
     }
   }
+
+  @media (hover: none) {
+    background-color: ${readColor(colors.yellow)};
+    color: ${readColor(colors.darkBlue)};
+  }
 `;
 
 function Button({ label, emoji, ...props }) {

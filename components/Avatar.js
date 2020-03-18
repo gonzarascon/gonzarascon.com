@@ -10,10 +10,11 @@ const Image = styled.img`
   height: 200px;
   grid-column: 1/2;
   align-self: center;
-  -webkit-user-select: none; /* Chrome all / Safari all */
-  -moz-user-select: none; /* Firefox all */
-  -ms-user-select: none; /* IE 10+ */
-  user-select: none; /* Likely future */
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
   @media ${breakpoints.mediumDevice} {
     width: 300px;
     height: 300px;
@@ -21,5 +22,5 @@ const Image = styled.img`
 `;
 
 export default function Avatar() {
-  return <Image src="./images/me.jpg" alt="Gonzalo Rascon" />;
+  return <Image src="./images/me.jpg" alt="Gonzalo Rascon" draggable="false" />;
 }

@@ -90,8 +90,10 @@ export const Name = styled(motion.h1)`
   font-size: ${calculateRem(60)};
   color: ${readColor(colors.lightCyan)};
   font-weight: bolder;
+  text-align: center;
   @media ${breakpoints.mediumDevice} {
     font-size: ${calculateRem(100)};
+    text-align: left;
   }
 `;
 
