@@ -49,12 +49,14 @@ export const WelcomeTextContainer = styled.div`
 `;
 
 export const Name = styled(motion.h1)`
+  font-family: 'Work Sans', sans-serif;
   font-size: ${calculateRem(100)};
   color: ${readColor(colors.lightCyan)};
   font-weight: bolder;
 `;
 
 export const MovingText = styled(motion.p)`
+  font-family: 'Work Sans', sans-serif;
   margin-top: 15px;
   margin-left: 10px;
   height: 80px;
