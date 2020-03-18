@@ -25,7 +25,7 @@ function Home() {
   }, []);
 
   function openMailto() {
-    window.open('mailto:gonzarascon@gmail.com?subject:Contact');
+    window.open('mailto:gonzarascon@gmail.com?subject=Contact');
   }
 
   const NameVariants = {
@@ -88,7 +88,9 @@ function Home() {
           </WelcomeTextContainer>
         </Welcome>
         <BottomSection>
-          <Features>Full-stack developer — Web designer</Features>
+          <Features>
+            Full-stack developer <span className="dash">—</span> Web designer
+          </Features>
           <Button label="Contact me!" emoji="😃" onClick={() => openMailto()} />
           <GithubLink
             href="https://github.com/gonzarascon"

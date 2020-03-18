@@ -40,7 +40,7 @@ function Button({ label, emoji, ...props }) {
   return (
     <ButtonBox {...props}>
       {label}
-      {emoji && <Emoji symbol={emoji} />}
+      {emoji && <Emoji symbol={emoji} label="Emoji" />}
     </ButtonBox>
   );
 }

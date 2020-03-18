@@ -6,39 +6,62 @@ const { readColor, calculateRem } = Utils;
 
 export const Wrapper = styled.main`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: ${readColor(colors.blue)};
   color: ${readColor(colors.lightCyan)};
+
+  @media ${breakpoints.mediumDevice} {
+    height: 100vh;
+  }
+  @media ${breakpoints.iPadPort} {
+    height: auto;
+  }
 `;
 
 export const GridContainer = styled.section`
   width: 100%;
   height: 100%;
-
-  max-width: calc(100% - 280px);
+  padding: 50px 25px 25px;
   margin: 0 auto;
 
   display: grid;
 
   grid-template-columns: 1fr;
+  grid-template-rows: 1fr 300px;
 
   @media ${breakpoints.mediumDevice} {
+    max-width: calc(100% - 280px);
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 55% 1fr;
     grid-column-gap: 16px;
     padding: 100px 0 0;
     justify-items: center;
   }
+
+  @media ${breakpoints.iPadPort} {
+    max-width: unset;
+    grid-template-rows: 1fr 300px;
+    grid-gap: 30px;
+  }
 `;
 
 export const Welcome = styled.div`
   display: grid;
-  grid-gap: 50px;
   width: 100%;
+  grid-gap: 20px;
+
+  justify-items: center;
+
   @media ${breakpoints.mediumDevice} {
+    grid-gap: 50px;
+
     grid-column: 3/ 11;
     grid-template-columns: 1fr 1fr;
-    justify-items: center;
+  }
+
+  @media ${breakpoints.iPadPort} {
+    grid-column: 2/12;
+    grid-template-columns: 1fr;
   }
 
   @media ${breakpoints.fullHDevice} {
@@ -49,16 +72,27 @@ export const Welcome = styled.div`
 export const WelcomeTextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   align-self: center;
   width: 100%;
+
+  @media ${breakpoints.mediumDevice} {
+    align-items: flex-start;
+  }
+
+  @media ${breakpoints.iPadPort} {
+    align-items: center;
+  }
 `;
 
 export const Name = styled(motion.h1)`
   font-family: 'Work Sans', sans-serif;
-  font-size: ${calculateRem(100)};
+  font-size: ${calculateRem(60)};
   color: ${readColor(colors.lightCyan)};
   font-weight: bolder;
+  @media ${breakpoints.mediumDevice} {
+    font-size: ${calculateRem(100)};
+  }
 `;
 
 export const MovingText = styled(motion.p)`
@@ -66,11 +100,20 @@ export const MovingText = styled(motion.p)`
   margin-top: 15px;
   margin-left: 10px;
   height: 80px;
-  font-size: ${calculateRem(35)};
-  line-height: ${calculateRem(40)};
+  font-size: ${calculateRem(25)};
+  line-height: ${calculateRem(30)};
   width: 90%;
   color: ${readColor(colors.lightCyan)};
   font-weight: 300;
+  text-align: center;
+  @media ${breakpoints.mediumDevice} {
+    font-size: ${calculateRem(35)};
+    line-height: ${calculateRem(40)};
+    text-align: left;
+  }
+  @media ${breakpoints.iPadPort} {
+    text-align: center;
+  }
 `;
 
 export const BottomSection = styled.div`
@@ -85,9 +128,21 @@ export const BottomSection = styled.div`
 `;
 
 export const Features = styled.span`
-  font-size: ${calculateRem(32)};
+  font-size: ${calculateRem(20)};
   color: ${readColor(colors.lightCyan)};
   text-align: center;
+
+  & .dash {
+    display: block;
+  }
+
+  @media ${breakpoints.mediumDevice} {
+    font-size: ${calculateRem(32)};
+
+    & .dash {
+      display: inline-block;
+    }
+  }
 `;
 
 export const GithubLink = styled.a`

@@ -6,8 +6,8 @@ const Image = styled.img`
   border-radius: 50%;
   object-fit: cover;
   object-position: bottom;
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 200px;
   grid-column: 1/2;
   align-self: center;
   -webkit-user-select: none; /* Chrome all / Safari all */

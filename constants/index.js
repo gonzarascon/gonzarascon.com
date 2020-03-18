@@ -7,6 +7,10 @@ export const breakpoints = {
   mediumDevice: '(min-width: 48em)',
   largeDevice: '(min-width: 62em)',
   fullHDevice: '(min-width: 90em)',
+  iPadLand:
+    'only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)',
+  iPadPort:
+    'only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)',
 };
 
 export const colors = {
