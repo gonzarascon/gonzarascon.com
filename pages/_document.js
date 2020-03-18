@@ -57,6 +57,44 @@ class MyDocument extends Document {
           />
           <meta name="theme-color" content="#ffffff"></meta>
           <meta name="author" content="https://www.gonzarascon.com" />
+          <meta name="title" content="Gonzalo Rascón — Web Development" />
+          <meta
+            name="description"
+            content="Gonzalo Rascon is a Web Developer based in Buenos Aires, Argentina."
+          />
+          <meta
+            name="keywords"
+            content="developer, web development, react, html, css, javascript, js"
+          />
+          <meta name="robots" content="index, follow" />
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta name="language" content="English" />
+
+          <meta
+            property="og:title"
+            content="Gonzalo Rascón — Web Development"
+          />
+          <meta
+            property="og:site_name"
+            content="Gonzalo Rascón — Web Development"
+          />
+          <meta property="og:url" content="https://gonzarascon.com" />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:description"
+            content="Gonzalo Rascon is a web developer based in Buenos Aires, Argentina"
+          />
+          <meta property="og:image" content="./images/share-img.png" />
+          <meta
+            property="og:image:secure_url"
+            content="./images/share-img.png"
+          />
+
+          <meta property="og:locale" content="en_US" />
+
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="https://gonzarascon.com" />
+          <meta name="twitter:creator" content="@gonza_rascon" />
         </Head>
         <body>
           <Main />

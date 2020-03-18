@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { breakpoints, colors, Utils } from 'constants';
 import Emoji from 'components/Emoji';
 
 const { readColor, calculateRem } = Utils;
 
-const ButtonBox = styled.button`
+const ButtonBox = styled(motion.button)`
   width: 100%;
   max-width: 350px;
   height: 75px;
@@ -15,12 +16,12 @@ const ButtonBox = styled.button`
 
   font-size: ${calculateRem(22)};
 
-  border: 1px solid ${readColor(colors.yellow)};
   border-radius: 20px;
+  border: none;
 
-  background: transparent;
+  background: white;
 
-  color: ${readColor(colors.yellow)};
+  color: ${readColor(colors.darkBlue)};
   transition: all ease 0.3s;
 
   & .emoji {
@@ -29,21 +30,39 @@ const ButtonBox = styled.button`
 
   @media (hover: hover) {
     &:hover {
-      background-color: ${readColor(colors.yellow)};
-      color: ${readColor(colors.darkBlue)};
       cursor: pointer;
     }
   }
 
   @media (hover: none) {
-    background-color: ${readColor(colors.yellow)};
+    background-color: white;
     color: ${readColor(colors.darkBlue)};
   }
 `;
 
 function Button({ label, emoji, ...props }) {
+  const ButtonVariants = {
+    initial: {
+      boxShadow: '0px 0px 0px 0px #0E153A',
+      transition: {
+        duration: 0.1,
+        delay: 0,
+      },
+    },
+    hover: {
+      boxShadow: `9px 10px 0px 0px #0E153A`,
+      transition: {
+        duration: 0.1,
+        delay: 0,
+      },
+    },
+  };
   return (
-    <ButtonBox {...props}>
+    <ButtonBox
+      {...props}
+      variants={ButtonVariants}
+      initial="initial"
+      whileHover="hover">
       {label}
       {emoji && <Emoji symbol={emoji} label="Emoji" />}
     </ButtonBox>
