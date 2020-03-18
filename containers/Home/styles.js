@@ -27,6 +27,7 @@ export const GridContainer = styled.section`
     grid-template-rows: 55% 1fr;
     grid-column-gap: 16px;
     padding: 100px 0;
+    justify-items: center;
   }
 `;
 
