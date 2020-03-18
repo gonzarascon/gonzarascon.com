@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useAnimation } from 'framer-motion';
 import Typed from 'react-typed';
+import SVG from 'react-inlinesvg';
 import Avatar from 'components/Avatar';
+import Button from 'components/Button';
 
 import {
   Wrapper,
@@ -10,9 +12,10 @@ import {
   Name,
   WelcomeTextContainer,
   MovingText,
+  BottomSection,
+  Features,
+  GithubLink,
 } from './styles';
-
-// text-shadow: 6px 4px 0px #CE5937;
 
 function Home() {
   const NameControls = useAnimation();
@@ -20,6 +23,10 @@ function Home() {
   useEffect(() => {
     NameControls.start('visible').then(() => NameControls.start('addShadow'));
   }, []);
+
+  function openMailto() {
+    window.open('mailto:gonzarascon@gmail.com?subject:Contact');
+  }
 
   const NameVariants = {
     visible: {
@@ -55,7 +62,7 @@ function Home() {
 
   const Texts = [
     'is creating awesome <br /> web experiences✨.',
-    'probably is eating pizza 🍕.',
+    `probably is eating pizza 🍕.`,
     'is thinking in new projects.',
   ];
 
@@ -80,6 +87,16 @@ function Home() {
             </MovingText>
           </WelcomeTextContainer>
         </Welcome>
+        <BottomSection>
+          <Features>Full-stack developer — Web designer</Features>
+          <Button label="Contact me!" emoji="😃" onClick={() => openMailto()} />
+          <GithubLink
+            href="https://github.com/gonzarascon"
+            target="_blank"
+            rel="noopener noreferrer">
+            Check me on Github <SVG src="./icons/github.svg" />
+          </GithubLink>
+        </BottomSection>
       </GridContainer>
     </Wrapper>
   );

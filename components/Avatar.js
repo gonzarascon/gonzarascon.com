@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { breakpoints, colors, Utils } from 'constants';
 
 const Image = styled.img`
   border-radius: 50%;
   object-fit: cover;
   object-position: bottom;
   width: 100%;
-  max-width: 300px;
-  max-height: 300px;
   height: 100%;
   grid-column: 1/2;
   align-self: center;
@@ -15,6 +14,10 @@ const Image = styled.img`
   -moz-user-select: none; /* Firefox all */
   -ms-user-select: none; /* IE 10+ */
   user-select: none; /* Likely future */
+  @media ${breakpoints.mediumDevice} {
+    width: 300px;
+    height: 300px;
+  }
 `;
 
 export default function Avatar() {

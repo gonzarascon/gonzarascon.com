@@ -29,7 +29,7 @@ export default function MyApp({ Component, pageProps }) {
       <style jsx>
         {`
           :global(html.wf-active > body) {
-            font-family: 'WorkSans', 'Arial', 'Helvetica', sans-serif;
+            font-family: 'Work Sans', 'Arial', 'Helvetica', sans-serif;
           }
         `}
       </style>

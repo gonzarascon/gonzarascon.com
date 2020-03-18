@@ -4,7 +4,7 @@ import { breakpoints, colors, Utils } from 'constants';
 
 const { readColor, calculateRem } = Utils;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.main`
   width: 100vw;
   height: 100vh;
   background-color: ${readColor(colors.blue)};
@@ -26,7 +26,7 @@ export const GridContainer = styled.section`
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 55% 1fr;
     grid-column-gap: 16px;
-    padding: 100px 0;
+    padding: 100px 0 0;
     justify-items: center;
   }
 `;
@@ -37,7 +37,12 @@ export const Welcome = styled.div`
   width: 100%;
   @media ${breakpoints.mediumDevice} {
     grid-column: 3/ 11;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
+  @media ${breakpoints.fullHDevice} {
+    grid-gap: 0;
   }
 `;
 
@@ -46,6 +51,7 @@ export const WelcomeTextContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   align-self: center;
+  width: 100%;
 `;
 
 export const Name = styled(motion.h1)`
@@ -61,6 +67,7 @@ export const MovingText = styled(motion.p)`
   margin-left: 10px;
   height: 80px;
   font-size: ${calculateRem(35)};
+  line-height: ${calculateRem(40)};
   width: 90%;
   color: ${readColor(colors.lightCyan)};
   font-weight: 300;
@@ -69,11 +76,42 @@ export const MovingText = styled(motion.p)`
 export const BottomSection = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
+  grid-row: 2/3;
+  @media ${breakpoints.mediumDevice} {
+    grid-column: 3/11;
+  }
 `;
 
 export const Features = styled.span`
   font-size: ${calculateRem(32)};
   color: ${readColor(colors.lightCyan)};
   text-align: center;
+`;
+
+export const GithubLink = styled.a`
+  font-size: ${calculateRem(20)};
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  svg {
+    margin-left: 10px;
+    max-width: 30px;
+    width: 100%;
+    path {
+      fill: white;
+    }
+  }
+
+  transition: opacity ease 0.3s;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 `;
