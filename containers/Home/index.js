@@ -4,6 +4,7 @@ import Typed from 'react-typed';
 import SVG from 'react-inlinesvg';
 import Avatar from 'components/Avatar';
 import Button from 'components/Button';
+import logEvent from 'helpers/logEvent';
 
 import {
   Wrapper,
@@ -25,6 +26,10 @@ function Home() {
   }, []);
 
   function openMailto() {
+    logEvent({
+      action: '01_Click_Contact',
+      label: 'Clicked Contact Button',
+    });
     window.open('mailto:gonzarascon@gmail.com?subject=Contact');
   }
 
