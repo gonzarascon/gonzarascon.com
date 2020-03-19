@@ -104,6 +104,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <meta property="og:locale" content="en_US" />
 
           <meta name="twitter:card" content="summary" />
+          <meta
+            property="twitter:image"
+            content="https://gonzarascon.com/images/share-img.png"
+          />
           <meta name="twitter:site" content="https://gonzarascon.com" />
           <meta name="twitter:creator" content="@gonza_rascon" />
         </Head>
