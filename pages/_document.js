@@ -105,7 +105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
           <meta name="twitter:card" content="summary" />
           <meta
-            property="twitter:image"
+            name="twitter:image"
             content="https://gonzarascon.com/images/share-img.png"
           />
           <meta name="twitter:site" content="https://gonzarascon.com" />
