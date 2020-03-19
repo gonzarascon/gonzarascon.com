@@ -95,10 +95,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             property="og:description"
             content="Gonzalo Rascon is a web developer based in Buenos Aires, Argentina"
           />
-          <meta property="og:image" content="./images/share-img.png" />
+          <meta property="og:image" content="/images/share-img.png" />
           <meta
             property="og:image:secure_url"
-            content="./images/share-img.png"
+            content="/images/share-img.png"
           />
 
           <meta property="og:locale" content="en_US" />
