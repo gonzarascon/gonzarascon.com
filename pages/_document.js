@@ -101,7 +101,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
           <meta
             property="og:image:secure_url"
-            content="/images/share-img.png"
+            content="https://gonzarascon.com/images/share-img.png"
           />
 
           <meta property="og:locale" content="en_US" />
