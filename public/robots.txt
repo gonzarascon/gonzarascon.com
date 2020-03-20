@@ -1,0 +1,6 @@
+Sitemap: https://gonzarascon.com/api/sitemap.xml
+
+User-agent: *
+Allow: /*
+
+Disallow: /api/*
