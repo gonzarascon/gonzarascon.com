@@ -113,6 +113,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
           <meta name="twitter:site" content="https://gonzarascon.com" />
           <meta name="twitter:creator" content="@gonza_rascon" />
+
+          <link rel="canonical" href="https://www.gonzarascon.com" />
         </Head>
         <body>
           {/* <!-- Google Tag Manager (noscript) --> */}
