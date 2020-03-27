@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "alias": ["www.gonzarascon.com"],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "status": 301,
+      "headers": {
+        "Location": "https://gonzarascon.com/$1"
+      }
+    }
+  ]
+}
