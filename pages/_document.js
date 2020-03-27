@@ -17,7 +17,7 @@ class MyDocument extends Document {
     const { styleTags } = this.props;
 
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           {/* <!-- Google Tag Manager --> */}
           <script
