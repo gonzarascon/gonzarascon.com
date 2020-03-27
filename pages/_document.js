@@ -78,7 +78,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             content="developer, web development, react, html, css, javascript, js"
           />
           <meta name="robots" content="index, follow" />
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="language" content="English" />
 
           <meta

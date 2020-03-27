@@ -15,7 +15,9 @@ import {
   MovingText,
   BottomSection,
   Features,
-  GithubLink,
+  SocialLink,
+  LinkContainer,
+  Main,
 } from './styles';
 
 function Home() {
@@ -71,7 +73,7 @@ function Home() {
 
   const Texts = [
     'is creating awesome <br /> web experiences✨.',
-    `probably is eating pizza 🍕.`,
+    'probably is eating pizza 🍕.',
     'is thinking in new projects.',
     'is playing with his dogs 🐶.',
   ];
@@ -97,17 +99,28 @@ function Home() {
             </MovingText>
           </WelcomeTextContainer>
         </Welcome>
-        <BottomSection>
+        <Main>
           <Features>
             Full-stack developer <span className="dash">—</span> Web designer
           </Features>
+        </Main>
+        <BottomSection>
           <Button label="Contact me!" emoji="😃" onClick={() => openMailto()} />
-          <GithubLink
-            href="https://github.com/gonzarascon"
-            target="_blank"
-            rel="noopener noreferrer">
-            Check me on Github <SVG src="./icons/github.svg" />
-          </GithubLink>
+          <LinkContainer>
+            <SocialLink
+              href="https://github.com/gonzarascon"
+              target="_blank"
+              rel="noopener noreferrer">
+              Check me on Github <SVG src="./icons/github.svg" />
+            </SocialLink>
+            <span></span>
+            <SocialLink
+              href="https://www.linkedin.com/in/gonzarascon"
+              target="_blank"
+              rel="noopener noreferrer">
+              Contact me on LinkedIn <SVG src="./icons/linkedin.svg" />
+            </SocialLink>
+          </LinkContainer>
         </BottomSection>
       </GridContainer>
     </Wrapper>

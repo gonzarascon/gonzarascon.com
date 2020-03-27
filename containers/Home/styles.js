@@ -4,7 +4,7 @@ import { breakpoints, colors, Utils } from 'constants';
 
 const { readColor, calculateRem } = Utils;
 
-export const Wrapper = styled.main`
+export const Wrapper = styled.div`
   width: 100vw;
   min-height: 100vh;
   background-color: ${readColor(colors.blue)};
@@ -27,12 +27,13 @@ export const GridContainer = styled.section`
   display: grid;
 
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 300px;
+  grid-template-rows: 1fr 60px 240px;
+  grid-gap: 10px;
 
   @media ${breakpoints.mediumDevice} {
     max-width: calc(100% - 280px);
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 55% 1fr;
+    grid-template-rows: 55% 2rem 1fr;
     grid-column-gap: 16px;
     padding: 100px 0 0;
     justify-items: center;
@@ -45,7 +46,7 @@ export const GridContainer = styled.section`
   }
 `;
 
-export const Welcome = styled.div`
+export const Welcome = styled.header`
   display: grid;
   width: 100%;
   grid-gap: 20px;
@@ -118,12 +119,23 @@ export const MovingText = styled(motion.p)`
   }
 `;
 
-export const BottomSection = styled.div`
+export const Main = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   grid-row: 2/3;
+  @media ${breakpoints.mediumDevice} {
+    grid-column: 3/11;
+  }
+`;
+
+export const BottomSection = styled.footer`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  grid-row: 3/4;
   @media ${breakpoints.mediumDevice} {
     grid-column: 3/11;
   }
@@ -147,18 +159,50 @@ export const Features = styled.span`
   }
 `;
 
-export const GithubLink = styled.a`
+export const LinkContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  span {
+    text-align: center;
+
+    &::after {
+      content: '— or —';
+      font-size: ${calculateRem(18)};
+      font-weight: lighter;
+      margin: 5px auto;
+      display: block;
+    }
+  }
+
+  @media ${breakpoints.mediumDevice} {
+    span {
+      margin: 0 20px;
+      &::after {
+        font-size: ${calculateRem(22)};
+        content: '|';
+      }
+    }
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+  }
+`;
+
+export const SocialLink = styled.a`
   font-size: ${calculateRem(20)};
   text-align: center;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   svg {
     margin-left: 10px;
     max-width: 30px;
     width: 100%;
+    max-height: 30px;
     path {
       fill: white;
     }
