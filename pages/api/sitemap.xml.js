@@ -13,7 +13,7 @@ export default async (req, res) => {
     // A Transform for turning a Readable stream of either SitemapItemOptions or url strings into a Sitemap.
     // The readable stream it transforms must be in object mode.
     const smStream = new SitemapStream({
-      hostname: 'https://gonzarascon.com',
+      hostname: 'https://www.gonzarascon.com',
     });
 
     const pipeline = smStream.pipe(createGzip());
