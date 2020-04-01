@@ -21,7 +21,7 @@ export default async (req, res) => {
     smStream.write({
       url: '/',
       lastmod: process.env.siteUpdatedAt,
-      changefreq: EnumChangefreq.MONTHLY,
+      changefreq: EnumChangefreq.DAILY,
     });
     smStream.end();
 
