@@ -127,13 +127,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <meta name="twitter:creator" content="@gonza_rascon" />
 
           <link rel="canonical" href="https://www.gonzarascon.com" />
-          <style>
-            {`
-            :global(html.wf-active > body) {
-              font-family: 'Work Sans', 'Arial', 'Helvetica', sans-serif;
-            }
-          `}
-          </style>
         </Head>
         <body>
           {/* <!-- Google Tag Manager (noscript) --> */}

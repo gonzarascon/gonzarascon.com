@@ -42,15 +42,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default function MyApp({ Component, pageProps }) {
-  // useEffect(() => {
-  //   WebFont.load({
-  //     custom: {
-  //       families: ['Work Sans'],
-  //       urls: ['/fonts/workSans.css'],
-  //     },
-  //   });
-  // }, []);
-
   return (
     <>
       <Head>
