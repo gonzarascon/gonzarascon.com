@@ -3,19 +3,32 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
+  static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
-    const page = renderPage(App => props =>
-      sheet.collectStyles(<App {...props} />),
-    );
-    const styleTags = sheet.getStyleElement();
+    const originalRenderPage = ctx.renderPage;
 
-    return { ...page, styleTags };
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+        });
+
+      const initialProps = await Document.getInitialProps(ctx);
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      };
+    } finally {
+      sheet.seal();
+    }
   }
 
   render() {
-    const { styleTags } = this.props;
-
     return (
       <Html lang="en">
         <Head>
@@ -30,7 +43,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }}
           />
           {/* <!-- End Google Tag Manager --> */}
-          {styleTags}
           <meta name="format-detection" content="telephone=no" />
           <meta httpEquiv="x-rim-auto-match" content="none" />
           <meta
@@ -115,6 +127,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <meta name="twitter:creator" content="@gonza_rascon" />
 
           <link rel="canonical" href="https://www.gonzarascon.com" />
+          <style>
+            {`
+            :global(html.wf-active > body) {
+              font-family: 'Work Sans', 'Arial', 'Helvetica', sans-serif;
+            }
+          `}
+          </style>
         </Head>
         <body>
           {/* <!-- Google Tag Manager (noscript) --> */}
