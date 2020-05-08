@@ -9,10 +9,8 @@ export const Wrapper = styled.div`
   min-height: 100vh;
   background-color: ${readColor(colors.blue)};
   color: ${readColor(colors.lightCyan)};
+  max-width: 100%;
 
-  @media ${breakpoints.mediumDevice} {
-    height: 100vh;
-  }
   @media ${breakpoints.iPadPort} {
     height: auto;
   }
@@ -27,13 +25,13 @@ export const GridContainer = styled.section`
   display: grid;
 
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 60px 240px;
+  grid-template-rows: 1fr auto 140px;
   grid-gap: 10px;
 
   @media ${breakpoints.mediumDevice} {
     max-width: calc(100% - 280px);
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 55% 2rem 1fr;
+    grid-template-rows: 450px auto 100px;
     grid-column-gap: 16px;
     padding: 100px 0 0;
     justify-items: center;
@@ -46,79 +44,6 @@ export const GridContainer = styled.section`
   }
 `;
 
-export const Welcome = styled.header`
-  display: grid;
-  width: 100%;
-  grid-gap: 20px;
-
-  justify-items: center;
-
-  @media ${breakpoints.mediumDevice} {
-    grid-gap: 50px;
-
-    grid-column: 3/ 11;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media ${breakpoints.iPadPort} {
-    grid-column: 2/12;
-    grid-template-columns: 1fr;
-  }
-
-  @media ${breakpoints.fullHDevice} {
-    grid-gap: 0;
-  }
-`;
-
-export const WelcomeTextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-self: center;
-  width: 100%;
-
-  @media ${breakpoints.mediumDevice} {
-    align-items: flex-start;
-  }
-
-  @media ${breakpoints.iPadPort} {
-    align-items: center;
-  }
-`;
-
-export const Name = styled(motion.h1)`
-  font-family: 'Work Sans', sans-serif;
-  font-size: ${calculateRem(60)};
-  color: ${readColor(colors.lightCyan)};
-  font-weight: bolder;
-  text-align: center;
-  @media ${breakpoints.mediumDevice} {
-    font-size: ${calculateRem(100)};
-    text-align: left;
-  }
-`;
-
-export const MovingText = styled(motion.p)`
-  font-family: 'Work Sans', sans-serif;
-  margin-top: 15px;
-  margin-left: 10px;
-  height: 80px;
-  font-size: ${calculateRem(25)};
-  line-height: ${calculateRem(30)};
-  width: 90%;
-  color: ${readColor(colors.lightCyan)};
-  font-weight: 300;
-  text-align: center;
-  @media ${breakpoints.mediumDevice} {
-    font-size: ${calculateRem(35)};
-    line-height: ${calculateRem(40)};
-    text-align: left;
-  }
-  @media ${breakpoints.iPadPort} {
-    text-align: center;
-  }
-`;
-
 export const Main = styled.main`
   display: flex;
   flex-direction: column;
@@ -127,6 +52,43 @@ export const Main = styled.main`
   grid-row: 2/3;
   @media ${breakpoints.mediumDevice} {
     grid-column: 3/11;
+    justify-content: space-between;
+  }
+`;
+
+export const FormSectionWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 25px auto;
+
+  @media ${breakpoints.mediumDevice} {
+    height: 525px;
+  }
+`;
+
+export const ThankYou = styled.h3`
+  font-size: ${calculateRem(23)};
+  text-align: center;
+  width: 100%;
+
+  @media ${breakpoints.mediumDevice} {
+    font-size: ${calculateRem(30)};
+  }
+`;
+
+export const ErrorSave = styled.span`
+  text-decoration: underline;
+  font-weight: lighter;
+  margin-top: 20px;
+  font-size: ${calculateRem(25)};
+
+  @media (hover: hover) {
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -145,12 +107,14 @@ export const Features = styled.span`
   font-size: ${calculateRem(20)};
   color: ${readColor(colors.lightCyan)};
   text-align: center;
+  margin-top: 30px;
 
   & .dash {
     display: block;
   }
 
   @media ${breakpoints.mediumDevice} {
+    margin-top: auto;
     font-size: ${calculateRem(32)};
 
     & .dash {
