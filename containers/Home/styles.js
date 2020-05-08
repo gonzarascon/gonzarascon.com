@@ -9,10 +9,8 @@ export const Wrapper = styled.div`
   min-height: 100vh;
   background-color: ${readColor(colors.blue)};
   color: ${readColor(colors.lightCyan)};
+  max-width: 100%;
 
-  @media ${breakpoints.mediumDevice} {
-    height: 100vh;
-  }
   @media ${breakpoints.iPadPort} {
     height: auto;
   }
@@ -33,7 +31,7 @@ export const GridContainer = styled.section`
   @media ${breakpoints.mediumDevice} {
     max-width: calc(100% - 280px);
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 55% 2rem 1fr;
+    grid-template-rows: 450px auto 100px;
     grid-column-gap: 16px;
     padding: 100px 0 0;
     justify-items: center;
@@ -127,6 +125,7 @@ export const Main = styled.main`
   grid-row: 2/3;
   @media ${breakpoints.mediumDevice} {
     grid-column: 3/11;
+    justify-content: space-between;
   }
 `;
 

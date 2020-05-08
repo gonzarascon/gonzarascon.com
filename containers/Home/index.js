@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { useAnimation } from 'framer-motion';
 import Typed from 'react-typed';
 import SVG from 'react-inlinesvg';
-import Avatar from 'components/Avatar';
-import Button from 'components/Button';
+import { Avatar, Button, ContactForm } from 'components';
 import logEvent from 'helpers/logEvent';
 
 import {
@@ -103,9 +102,10 @@ function Home() {
           <Features>
             Full-stack developer <span className="dash">—</span> Web designer
           </Features>
+
+          <ContactForm />
         </Main>
         <BottomSection>
-          <Button label="Contact me!" emoji="😃" onClick={() => openMailto()} />
           <LinkContainer>
             <SocialLink
               href="https://github.com/gonzarascon"
