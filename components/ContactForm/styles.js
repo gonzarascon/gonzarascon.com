@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { breakpoints, colors, Utils } from 'constants';
-
 const { calculateRem, readColor } = Utils;
 
 export const FormWrapper = styled.section`
@@ -31,15 +30,11 @@ export const Form = styled.form`
     color: white;
     font-size: ${calculateRem(20)};
     border-bottom: 2px solid white;
-    padding: 5px;
+    padding: 15px;
 
     &::placeholder {
       color: white;
       font-weight: 300;
-    }
-
-    @media ${breakpoints.mediumDevice} {
-      padding: 15px;
     }
   }
 
@@ -75,4 +70,10 @@ export const FormTextarea = styled.textarea`
       cursor: pointer;
     }
   }
+`;
+
+export const FormErrorWarning = styled.span`
+  text-align: center;
+  color: white;
+  font-size: ${calculateRem(20)};
 `;

@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import validator from 'validator';
-import { Button } from 'components';
+import { Button, Emoji } from 'components';
+import {
+  sendEmail,
+  useFormSubmissionState,
+  useFormSubmissionDispatch,
+} from 'components/FormSubmissionContext';
 import {
   FormWrapper,
   FormTitle,
   Form,
   FormInput,
   FormTextarea,
+  FormErrorWarning,
 } from './styles';
+
+const errorsInitialState = {
+  name: false,
+  email: false,
+  text: false,
+};
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -17,32 +28,36 @@ export default function ContactForm() {
     text: '',
   });
 
-  const [formErrors, setFormErrors] = useState({
-    name: false,
-    email: false,
-    text: false,
-  });
+  const [formErrors, setFormErrors] = useState(errorsInitialState);
 
   function handleChange(stateRef, data) {
     setFormData({ ...formData, [stateRef]: data });
+    setFormErrors(errorsInitialState);
   }
 
   function validateForm() {
     const { name, email, text } = formData;
     if (validator.isEmpty(name) || !validator.isLength(name, { min: 2 })) {
       setFormErrors({ ...formErrors, name: true });
+      return false;
     }
     if (!validator.isEmail(email)) {
       setFormErrors({ ...formErrors, email: true });
+      return false;
     }
     if (!validator.isLength(text, { min: 4 })) {
       setFormErrors({ ...formErrors, text: true });
+      return false;
     }
+
+    return true;
   }
 
   function handleFormSubmition(event) {
     event.preventDefault();
-    validateForm();
+    if (validateForm()) {
+      sendEmail(formData.text, formData.email, formData.name);
+    }
   }
 
   return (
@@ -69,6 +84,12 @@ export default function ContactForm() {
           type="submit"
         />
       </Form>
+      {formErrors !== errorsInitialState && (
+        <FormErrorWarning>
+          <Emoji symbol="🚨" label="Warning" /> Please check that all inputs are
+          ok!
+        </FormErrorWarning>
+      )}
     </FormWrapper>
   );
 }
