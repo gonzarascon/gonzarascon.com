@@ -4,10 +4,6 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
-body{
-  touch-action: none;
-}
-
 @font-face {
   font-family: 'Work Sans';
   src: url('./fonts/WorkSans-ExtraBold.woff2') format('woff2'),
