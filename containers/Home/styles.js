@@ -70,9 +70,13 @@ export const FormSectionWrapper = styled.section`
 `;
 
 export const ThankYou = styled.h3`
-  font-size: ${calculateRem(30)};
+  font-size: ${calculateRem(23)};
   text-align: center;
   width: 100%;
+
+  @media ${breakpoints.mediumDevice} {
+    font-size: ${calculateRem(30)};
+  }
 `;
 
 export const ErrorSave = styled.span`
@@ -103,12 +107,14 @@ export const Features = styled.span`
   font-size: ${calculateRem(20)};
   color: ${readColor(colors.lightCyan)};
   text-align: center;
+  margin-top: 30px;
 
   & .dash {
     display: block;
   }
 
   @media ${breakpoints.mediumDevice} {
+    margin-top: auto;
     font-size: ${calculateRem(32)};
 
     & .dash {

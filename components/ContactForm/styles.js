@@ -11,11 +11,15 @@ export const FormWrapper = styled.section`
 `;
 
 export const FormTitle = styled.h2`
-  font-size: ${calculateRem(50)};
+  font-size: ${calculateRem(40)};
   color: ${readColor(colors.lightCyan)};
   text-shadow: 4px 2px 0px #0e153a;
   font-weight: 600;
   margin-bottom: 20px;
+
+  @media ${breakpoints.mediumDevice} {
+    font-size: ${calculateRem(50)};
+  }
 `;
 
 export const Form = styled.form`

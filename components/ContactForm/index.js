@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import validator from 'validator';
 import { Button, Emoji } from 'components';
 import {
-  sendEmail,
-  useFormSubmissionState,
+  setSending,
+  setError,
+  setSent,
   useFormSubmissionDispatch,
 } from 'components/FormSubmissionContext';
 import {
@@ -22,6 +24,7 @@ const errorsInitialState = {
 };
 
 export default function ContactForm() {
+  const dispatchFormSubmission = useFormSubmissionDispatch();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -53,17 +56,26 @@ export default function ContactForm() {
     return true;
   }
 
-  function handleFormSubmition(event) {
+  async function handleFormSubmition(event, finalData) {
     event.preventDefault();
     if (validateForm()) {
-      sendEmail(formData.text, formData.email, formData.name);
+      const { text, email, name } = finalData;
+      dispatchFormSubmission(setSending());
+      await axios
+        .post(`${window.location.origin}/api/send-email`, {
+          msg: text,
+          email,
+          subject: name,
+        })
+        .then(() => dispatchFormSubmission(setSent()))
+        .catch(() => dispatchFormSubmission(setError()));
     }
   }
 
   return (
     <FormWrapper>
       <FormTitle>Contact me!</FormTitle>
-      <Form onSubmit={e => handleFormSubmition(e)}>
+      <Form onSubmit={e => handleFormSubmition(e, formData)}>
         <FormInput
           placeholder="Name"
           onChange={e => handleChange('name', e.target.value)}

@@ -53,14 +53,6 @@ export function setError() {
   };
 }
 
-export async function sendEmail(msg, email, subject) {
-  setSending();
-  await axios
-    .post(`${window.location.origin}/api/send-email`, { msg, email, subject })
-    .then(() => setSent())
-    .catch(() => setError());
-}
-
 export function setWaitingInput() {
   return {
     type: SET_WAITING_INPUT,
