@@ -16,6 +16,7 @@ import {
   FormTextarea,
   FormErrorWarning,
 } from './styles';
+import logEvent from 'helpers/logEvent';
 
 const errorsInitialState = {
   name: false,
@@ -69,7 +70,13 @@ export default function ContactForm() {
           API_KEY: process.env.SENDGRID_API_KEY,
           EMAIL_SECRET: process.env.EMAIL_ADRESS,
         })
-        .then(() => dispatchFormSubmission(setSent()))
+        .then(() => {
+          logEvent({
+            action: '02_Submit_Contact_Form',
+            label: 'Sent Message from Contact Form',
+          });
+          dispatchFormSubmission(setSent());
+        })
         .catch(() => dispatchFormSubmission(setError()));
     }
   }

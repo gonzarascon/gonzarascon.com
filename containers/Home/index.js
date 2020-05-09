@@ -8,8 +8,6 @@ import {
   setWaitingInput,
 } from 'components/FormSubmissionContext';
 
-import logEvent from 'helpers/logEvent';
-
 import {
   Wrapper,
   GridContainer,
