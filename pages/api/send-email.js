@@ -2,12 +2,8 @@ import sendEmail from 'helpers/sendEmail';
 
 export default async (req, res) => {
   if (req.method === 'POST') {
-    const { msg, email, subject } = req.body;
-    await sendEmail(
-      { msg, subject, email },
-      process.env.SENDGRID_API_KEY,
-      process.env.EMAIL_ADRESS,
-    );
+    const { msg, email, subject, API_KEY, EMAIL_SECRET } = req.body;
+    await sendEmail({ msg, subject, email, API_KEY, EMAIL_SECRET });
     return res.status(200).end();
   }
   return res.status(404).json({

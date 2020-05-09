@@ -66,6 +66,8 @@ export default function ContactForm() {
           msg: text,
           email,
           subject: name,
+          API_KEY: process.env.SENDGRID_API_KEY,
+          EMAIL_SECRET: process.env.EMAIL_ADRESS,
         })
         .then(() => dispatchFormSubmission(setSent()))
         .catch(() => dispatchFormSubmission(setError()));

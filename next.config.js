@@ -1,5 +1,6 @@
 const withCss = require('@zeit/next-css');
 const withFonts = require('next-fonts');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = withFonts(
   withCss({
@@ -24,7 +25,15 @@ module.exports = withFonts(
           use: 'null-loader',
         });
       }
+
+      config.plugins.push(new Dotenv({ silent: true }));
+
       return config;
+    },
+    env: {
+      SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
+      EMAIL_ADRESS: process.env.EMAIL_ADRESS,
+      TEST_ENV: process.env.TEST_ENV,
     },
   }),
 );

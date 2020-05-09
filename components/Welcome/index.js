@@ -55,7 +55,7 @@ export default function Welcome() {
 
   const Texts = [
     'is creating awesome <br /> web experiences✨.',
-    'probably is eating pizza 🍕.',
+    'is probably eating pizza 🍕.',
     'is thinking in new projects.',
     'is playing with his dogs 🐶.',
   ];
