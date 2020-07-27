@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Head from 'next/head';
-// import Fonts from 'helpers/fonts';
 import { createGlobalStyle } from 'styled-components';
-const isServer = typeof window === 'undefined';
 
 const GlobalStyle = createGlobalStyle`
+
 @font-face {
   font-family: 'Work Sans';
   src: url('./fonts/WorkSans-ExtraBold.woff2') format('woff2'),
