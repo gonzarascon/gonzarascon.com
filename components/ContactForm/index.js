@@ -49,7 +49,7 @@ export default function ContactForm() {
       setFormErrors({ ...formErrors, email: true });
       return false;
     }
-    if (!validator.isLength(text, { min: 4 })) {
+    if (!validator.isLength(text, { min: 30 })) {
       setFormErrors({ ...formErrors, text: true });
       return false;
     }
@@ -90,7 +90,7 @@ export default function ContactForm() {
           onChange={e => handleChange('name', e.target.value)}
         />
         <FormInput
-          placeholder="Email adress"
+          placeholder="Email address"
           onChange={e => handleChange('email', e.target.value)}
           type="email"
         />
