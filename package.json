@@ -27,7 +27,7 @@
     "react-typed": "^1.2.0",
     "sitemap": "^6.1.0",
     "styled-components": "^5.0.1",
-    "validator": "^13.0.0",
+    "validator": "^13.7.0",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
