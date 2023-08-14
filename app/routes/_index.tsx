@@ -45,7 +45,7 @@ const urls = [
   },
   {
     name: 'projects',
-    url: '/projects',
+    url: 'https://github.com/gonzarascon',
     external: false,
   },
   {
