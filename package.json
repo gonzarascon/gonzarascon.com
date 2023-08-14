@@ -1,51 +1,42 @@
 {
-  "name": "gonzarascon.com",
-  "version": "1.0.0",
-  "description": "Personal Website",
-  "main": "index.js",
-  "repository": "git@github.com:gonzarascon/gonzarascon.com.git",
-  "author": "gonzarascon <gonzarascon@gmail.com>",
-  "license": "MIT",
+  "private": true,
+  "sideEffects": false,
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "debug": "now dev -l 3001 --debug"
+    "build": "remix build",
+    "dev": "remix dev",
+    "start": "remix-serve build",
+    "typecheck": "tsc"
   },
   "dependencies": {
-    "@sendgrid/mail": "^7.1.0",
-    "@zeit/next-css": "^1.0.1",
-    "axios": "^0.19.2",
-    "color": "^3.1.2",
-    "fontfaceobserver": "^2.1.0",
-    "framer-motion": "^1.9.1",
-    "next": "^9.3.1",
-    "next-fonts": "^1.0.3",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-inlinesvg": "^1.2.0",
-    "react-typed": "^1.2.0",
-    "sitemap": "^6.1.0",
-    "styled-components": "^5.0.1",
-    "validator": "^13.0.0",
-    "webfontloader": "^1.6.28"
+    "@react-three/drei": "^9.80.2",
+    "@react-three/fiber": "^8.13.6",
+    "@react-three/postprocessing": "^2.15.0",
+    "@remix-run/css-bundle": "^1.19.2",
+    "@remix-run/node": "^1.19.2",
+    "@remix-run/react": "^1.19.2",
+    "@remix-run/serve": "^1.19.2",
+    "@types/three": "^0.155.0",
+    "framer-motion": "^10.15.1",
+    "isbot": "^3.6.8",
+    "leva": "^0.9.35",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "^0.155.0",
+    "three-stdlib": "^2.24.2",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
-    "babel-plugin-module-resolver": "^4.0.0",
-    "babel-plugin-styled-components": "^1.10.0",
-    "dotenv-webpack": "^1.7.0",
-    "husky": "^3.1.0",
-    "lint-staged": "^9.5.0",
-    "prettier": "^1.19.1"
+    "@remix-run/dev": "^1.19.2",
+    "@remix-run/eslint-config": "^1.19.2",
+    "@types/react": "^18.0.35",
+    "@types/react-dom": "^18.0.11",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.38.0",
+    "prettier": "^3.0.1",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.0.4"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,css,html,json}": [
-      "npx prettier --write"
-    ]
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
