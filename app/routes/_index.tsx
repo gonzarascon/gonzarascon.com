@@ -20,7 +20,7 @@ export const meta: V2_MetaFunction = (args) => {
     },
     {
       property: 'og:url',
-      content: 'https://gonzarascon.dev',
+      content: 'https://gonzarascon.tech',
     },
     {
       property: 'og:type',
@@ -32,7 +32,7 @@ export const meta: V2_MetaFunction = (args) => {
     },
     {
       property: 'og:image',
-      content: `https://gonzarascon.dev/images/og-image.png`,
+      content: `https://gonzarascon.tech/images/og-image.png`,
     },
   ];
 };
