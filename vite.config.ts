@@ -3,23 +3,23 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [
-    remix({
-      future: {
-        v3_fetcherPersist: true,
-        v3_relativeSplatPath: true,
-        v3_throwAbortReason: true,
-      },
-      basename: "/",
-      buildDirectory: "build",
-      ignoredRouteFiles: ["**/*.css"],
-      routes(defineRoutes) {
-        return defineRoutes((route) => {
-          route("/", "routes/index.tsx", { index: true });
-          route("/drawy", "routes/drawy/index.tsx", { index: true });
-        });
-      },
-    }),
-    tsconfigPaths(),
-  ],
+	plugins: [
+		remix({
+			future: {
+				v3_fetcherPersist: true,
+				v3_relativeSplatPath: true,
+				v3_throwAbortReason: true,
+			},
+			basename: "/",
+			buildDirectory: "build",
+			ignoredRouteFiles: ["**/*.css"],
+			routes(defineRoutes) {
+				return defineRoutes((route) => {
+					route("/", "routes/index.tsx", { index: true });
+					route("/drawy", "routes/drawy/index.tsx", { index: true });
+				});
+			},
+		}),
+		tsconfigPaths(),
+	],
 });
