@@ -1,5 +1,5 @@
-import type React from "react";
-import { createDrawy } from "./drawy/create-drawy";
+import type { MetaFunction } from "@remix-run/react";
+import { createDrawy } from "drawy";
 
 const SettingsPanel: React.FC = () => {
 	return (
@@ -12,7 +12,7 @@ const SettingsPanel: React.FC = () => {
 	);
 };
 
-const ProfilePanel: React.FC = () => {
+const ProfilePanel = () => {
 	const { open } = useDrawy();
 
 	return (
@@ -32,7 +32,7 @@ const ProfilePanel: React.FC = () => {
 	);
 };
 
-const ExampleBasic: React.FC = () => {
+const ExampleBasic = () => {
 	const { open } = useDrawy();
 
 	return (
@@ -52,7 +52,7 @@ const ExampleBasic: React.FC = () => {
 	);
 };
 
-const ExampleStack: React.FC = () => {
+const ExampleStack = () => {
 	const { open } = useDrawy();
 
 	return (
@@ -72,7 +72,7 @@ const ExampleStack: React.FC = () => {
 	);
 };
 
-const NotificationsPanel: React.FC = () => {
+const NotificationsPanel = () => {
 	return (
 		<div>
 			<h2 className="text-2xl font-bold mb-4">Notifications</h2>
@@ -89,7 +89,7 @@ const panels = {
 
 const { DrawyProvider, useDrawy } = createDrawy(panels);
 
-const LandingPage: React.FC = () => {
+const LandingPage = () => {
 	return (
 		<DrawyProvider>
 			<div className="min-h-screen bg-gray-50 flex flex-col">
@@ -98,14 +98,10 @@ const LandingPage: React.FC = () => {
 						<div className="text-2xl font-bold text-gray-800">Drawy</div>
 						<nav>
 							<a
-								href="#examples"
+								href="https://github.com/gonzarascon/drawy"
 								className="text-gray-600 hover:text-gray-800 mx-4"
-							>
-								Examples
-							</a>
-							<a
-								href="https://github.com/your-repo/drawy"
-								className="text-gray-600 hover:text-gray-800 mx-4"
+								target="_blank"
+								rel="noopener noreferrer"
 							>
 								GitHub
 							</a>
@@ -140,15 +136,24 @@ const LandingPage: React.FC = () => {
 						</div>
 					</section>
 				</main>
-
-				<footer className="bg-white py-6">
-					<div className="container mx-auto px-4 text-center text-gray-600">
-						Made with ❤️ using React, TypeScript, Radix UI, and Tailwind CSS.
-					</div>
-				</footer>
 			</div>
 		</DrawyProvider>
 	);
 };
 
 export default LandingPage;
+
+export const meta: MetaFunction = () => {
+	return [
+		{ title: "Drawy —  Simple Side Panels for React" },
+		{
+			property: "og:title",
+			content: "Drawy —  Simple Side Panels for React",
+		},
+		{
+			name: "description",
+			content:
+				"The minimalist React library for managing side panels effortlessly.",
+		},
+	];
+};
