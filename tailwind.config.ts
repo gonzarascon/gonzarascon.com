@@ -1,15 +1,9 @@
-import type { Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme'
+import type { Config } from "tailwindcss";
 
 export default {
-  content: ["./app/**/*.{js,jsx,ts,tsx}"],
-  theme: {
-    extend: {
-      fontFamily: {
-        'sans': ['Work Sans', ...defaultTheme.fontFamily.sans],
-      }
-    },
-  },
-  plugins: [],
-} satisfies Config
-
+	content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
+	theme: {
+		extend: {},
+	},
+	plugins: [],
+} satisfies Config;
