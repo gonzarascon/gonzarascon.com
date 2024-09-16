@@ -46,7 +46,7 @@ const ExampleBasic = () => {
 				onClick={() => open("settings")}
 				className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
 			>
-				Open Settings Panel
+				Open
 			</button>
 		</div>
 	);
@@ -66,7 +66,7 @@ const ExampleStack = () => {
 				onClick={() => open("profile")}
 				className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
 			>
-				Open Profile Panel
+				Open
 			</button>
 		</div>
 	);
@@ -111,25 +111,19 @@ const LandingPage = () => {
 
 				<main className="container mx-auto px-4 py-12 flex-grow">
 					<section className="text-center">
-						<h1 className="text-4xl font-bold text-gray-800 mb-6">
+						<h2 className="text-5xl font-bold text-gray-800 mb-6">
 							Simplify Side Panels with Drawy
-						</h1>
-						<p className="text-xl text-gray-600 mb-8">
-							A minimalist React library for managing side panels effortlessly.
+						</h2>
+						<p className="text-xl text-gray-600 mb-8 font-extralight">
+							The simplest way to manage side panels in React.
 						</p>
-						<a
-							href="#examples"
-							className="bg-blue-600 text-white px-6 py-3 rounded-md text-lg hover:bg-blue-700"
-						>
-							View Examples
-						</a>
 					</section>
 
 					<section id="examples" className="mt-16">
 						<h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-							Live Examples
+							Try it out
 						</h2>
-						<div className="flex flex-col items-center space-y-12">
+						<div className="flex items-center gap-12 justify-center">
 							<ExampleBasic />
 
 							<ExampleStack />
