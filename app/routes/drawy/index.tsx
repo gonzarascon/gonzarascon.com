@@ -2,7 +2,7 @@ import type { MetaFunction } from "@remix-run/react";
 import { createDrawy } from "drawy";
 
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Github } from "lucide-react";
 import Prism from "prismjs";
 import prismcss from "prismjs/themes/prism-tomorrow.css?url";
 import "prismjs/components/prism-jsx";
@@ -52,24 +52,31 @@ const Hero = () => {
 			<h1 className="text-4xl max-w-xl mx-auto sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight">
 				<span className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400 text-transparent bg-clip-text">
 					Drawy
-				</span>{" "}
-				simple side panel management for the day-to-day
+				</span>
+				. simple side panel management for the day-to-day
 			</h1>
 			<p className="mt-3 mx-auto text-base sm:text-lg md:text-xl text-gray-500">
 				A lightweight, fully-typed React library for effortless management of
 				side panels and drawers.
 			</p>
-			<div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-				<div className="rounded-md shadow">
-					<button
-						type="button"
-						onClick={() => open("profile")}
-						className="w-full shadow-xl flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
-					>
-						Get Started
-						<ChevronRight className="ml-2 -mr-1 h-5 w-5" aria-hidden="true" />
-					</button>
-				</div>
+			<div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+				<button
+					type="button"
+					onClick={() => open("profile")}
+					className="w-full sm:w-auto shadow-xl flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
+				>
+					Try it!
+					<ChevronRight className="ml-2 -mr-1 h-5 w-5" aria-hidden="true" />
+				</button>
+				<a
+					href="https://github.com/gonzarascon/drawy"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="w-full sm:w-auto flex items-center justify-center px-8 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+				>
+					<Github className="mr-2 h-5 w-5" />
+					View on GitHub
+				</a>
 			</div>
 		</motion.div>
 	);
@@ -90,6 +97,39 @@ const panels = {
 	notifications: <NotificationsPanel />,
 };
 
+const FeatureList = () => {
+	const features = [
+		"Fully typed",
+		"Easy integration",
+		"SSR friendly",
+		"Lightweight",
+		"Customizable",
+		"Stack multiple panels",
+	];
+
+	return (
+		<motion.div
+			initial={{ opacity: 0, y: 20 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.8, delay: 0.2 }}
+			className="mt-16"
+		>
+			<h2 className="text-2xl font-bold text-center mb-8">Key Features</h2>
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+				{features.map((feature) => (
+					<div
+						key={feature}
+						className="bg-white p-4 rounded-lg shadow-md flex items-center"
+					>
+						<ChevronRight className="text-blue-500 mr-2" />
+						<span>{feature}</span>
+					</div>
+				))}
+			</div>
+		</motion.div>
+	);
+};
+
 const { DrawyProvider, useDrawy } = createDrawy(panels);
 
 const LandingPage = () => {
@@ -102,6 +142,7 @@ const LandingPage = () => {
 			<div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8">
 				<div className="max-w-7xl w-full space-y-8">
 					<Hero />
+					<FeatureList />
 
 					<motion.div
 						initial={{ opacity: 0, scale: 0.95 }}
@@ -210,4 +251,5 @@ export const meta: MetaFunction = () => {
 
 export const links: LinksFunction = () => [
 	{ rel: "stylesheet", href: prismcss },
+	{ rel: "icon", href: "/drawy.png", type: "image/png" },
 ];
