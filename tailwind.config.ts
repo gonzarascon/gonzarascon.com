@@ -6,7 +6,11 @@ export default {
 		"./node_modules/drawy/src/**/*.{js,jsx,ts,tsx}",
 	],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				serif: ["Playfair Display", "ui-serif", "Georgia", "serif"],
+			},
+		},
 	},
 	plugins: [],
 } satisfies Config;

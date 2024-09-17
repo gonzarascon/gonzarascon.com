@@ -3,25 +3,69 @@ import { Link } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "New Remix App" },
-		{ name: "description", content: "Welcome to Remix!" },
+		{ title: "Gonzalo Rascon" },
+		{ name: "description", content: "Dump of things made by @gonzarascon" },
 	];
 };
 
-export default function Index() {
+import { GithubIcon, NewspaperIcon } from "lucide-react";
+
+export default function Component() {
+	const projects = [{ title: "Drawy", href: "/drawy" }];
+
 	return (
-		<div className="font-sans p-4">
-			<h1 className="text-3xl">My stuff</h1>
-			<ul className="list-disc mt-4 pl-6 space-y-2">
-				<li>
-					<Link
-						className="text-blue-700 underline visited:text-purple-900"
-						to="/drawy"
+		<div className="min-h-screen bg-gray-100 font-serif">
+			<div className="p-8">
+				<h1 className="mb-8 text-center text-3xl font-bold text-slate-700">
+					Gonza Rascon
+				</h1>
+
+				<div className="mb-8 flex justify-center space-x-4 font-sans font-light">
+					<a
+						href="https://substack.com/@gonzarascon"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="flex items-center text-gray-600 hover:text-gray-900"
 					>
-						Drawy
-					</Link>
-				</li>
-			</ul>
+						<NewspaperIcon className="mr-2 h-5 w-5" />
+						Substack
+					</a>
+					<a
+						href="https://github.com/gonzarascon"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="flex items-center text-gray-600 hover:text-gray-900"
+					>
+						<GithubIcon className="mr-2 h-5 w-5" />
+						GitHub
+					</a>
+				</div>
+			</div>
+
+			<div
+				className="h-1 w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
+				aria-hidden="true"
+			/>
+
+			<div className="p-8">
+				<div className="mx-auto max-w-md">
+					<h2 className="mb-4 text-xl font-medium text-gray-700 font-sans">
+						My stuff
+					</h2>
+					<ul className="space-y-2">
+						{projects.map((project) => (
+							<li key={project.href}>
+								<Link
+									to={project.href}
+									className="block rounded-md py-2 px-4 text-gray-700 transition-colors duration-200 hover:bg-gray-200 hover:text-gray-900"
+								>
+									{project.title}
+								</Link>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
 		</div>
 	);
 }
