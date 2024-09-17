@@ -19,8 +19,11 @@
 		"@types/bun": "^1.1.9",
 		"clsx": "^2.1.1",
 		"drawy": "^0.1.1",
+		"framer-motion": "^11.5.4",
 		"isbot": "^4.1.0",
+		"lucide-react": "^0.441.0",
 		"posthog-js": "^1.161.3",
+		"prismjs": "^1.29.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"tw-merge": "^0.0.1-alpha.3"
@@ -28,6 +31,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.9.0",
 		"@remix-run/dev": "^2.12.0",
+		"@types/prismjs": "^1.26.4",
 		"@types/react": "^18.2.20",
 		"@types/react-dom": "^18.2.7",
 		"@typescript-eslint/eslint-plugin": "^6.7.4",
