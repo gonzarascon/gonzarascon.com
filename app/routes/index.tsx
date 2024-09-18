@@ -9,6 +9,7 @@ export const meta: MetaFunction = () => {
 };
 
 import { GithubIcon, NewspaperIcon } from "lucide-react";
+import posthog from "posthog-js";
 
 export default function Component() {
 	const projects = [{ title: "Drawy", href: "/drawy" }];
@@ -58,6 +59,11 @@ export default function Component() {
 								<Link
 									to={project.href}
 									className="block rounded-md py-2 px-4 text-gray-700 transition-colors duration-200 hover:bg-gray-200 hover:text-gray-900"
+									onClick={() => {
+										posthog.capture("project_clicked", {
+											project: project.title,
+										});
+									}}
 								>
 									{project.title}
 								</Link>
