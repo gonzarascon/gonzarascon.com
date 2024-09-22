@@ -1,10 +1,49 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 
+export const loader = () => {
+	return {
+		jsonLD: {
+			"@context": "https://schema.org",
+			"@type": "Person",
+			name: "Gonzalo Rascon",
+			url: "https://gonzarascon.com",
+			sameAs: [
+				"https://github.com/gonzarascon",
+				"https://substack.com/@gonzarascon",
+			],
+		},
+	};
+};
+
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Gonzalo Rascon" },
-		{ name: "description", content: "Dump of things made by @gonzarascon" },
+		{ title: "Gonzalo Rascon - Fullstack developer" },
+		{
+			name: "description",
+			content:
+				"Personal website of Gonzalo Rascon, showcasing projects and articles by @gonzarascon",
+		},
+		{
+			name: "keywords",
+			content: "Gonzalo Rascon, web development, design, projects, articles",
+		},
+		{ name: "author", content: "Gonzalo Rascon" },
+		{ property: "og:title", content: "Gonzalo Rascon - Fullstack developer" },
+		{
+			property: "og:description",
+			content:
+				"Personal website of Gonzalo Rascon, showcasing projects and articles by @gonzarascon",
+		},
+		{ property: "og:type", content: "website" },
+		{ property: "og:url", content: "https://gonzarascon.tech" },
+		{ name: "twitter:creator", content: "@gonzarascon" },
+		{ name: "twitter:title", content: "Gonzalo Rascon - Fullstack developer" },
+		{
+			name: "twitter:description",
+			content:
+				"Personal website of Gonzalo Rascon, showcasing projects and articles by @gonzarascon",
+		},
 	];
 };
 

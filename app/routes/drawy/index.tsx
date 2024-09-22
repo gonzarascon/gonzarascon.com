@@ -236,15 +236,46 @@ export default LandingPage;
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Drawy —  Simple Side Panels for React" },
+		{
+			title: "Drawy - Simple Side Panels for React | Lightweight & Fully-Typed",
+		},
 		{
 			property: "og:title",
-			content: "Drawy —  Simple Side Panels for React",
+			content:
+				"Drawy - Simple Side Panels for React | Lightweight & Fully-Typed",
 		},
 		{
 			name: "description",
 			content:
-				"The minimalist React library for managing side panels effortlessly.",
+				"Drawy is a lightweight, fully-typed React library for effortless management of side panels and drawers. Easy integration, SSR friendly, and customizable.",
+		},
+		{
+			property: "og:description",
+			content:
+				"Drawy is a lightweight, fully-typed React library for effortless management of side panels and drawers. Easy integration, SSR friendly, and customizable.",
+		},
+		{
+			name: "keywords",
+			content:
+				"React, side panels, drawers, typescript, SSR, lightweight, customizable",
+		},
+		{
+			property: "og:type",
+			content: "website",
+		},
+		{
+			property: "og:url",
+			content: "https://gonzarascon.tech/drawy",
+		},
+		{
+			name: "twitter:title",
+			content:
+				"Drawy - Simple Side Panels for React | Lightweight & Fully-Typed",
+		},
+		{
+			name: "twitter:description",
+			content:
+				"Drawy is a lightweight, fully-typed React library for effortless management of side panels and drawers. Easy integration, SSR friendly, and customizable.",
 		},
 	];
 };
