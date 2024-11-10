@@ -52,13 +52,15 @@ const pokemonTypeMapping = {
 
 const model = process.env.MODEL_NAME;
 
+export type PokemonType = keyof typeof pokemonTypeMapping;
+
 export async function generateImage({
 	promptText,
 	type,
 	name,
 }: {
 	promptText: string;
-	type: keyof typeof pokemonTypeMapping;
+	type: PokemonType;
 	name: string;
 }) {
 	if (!model) {

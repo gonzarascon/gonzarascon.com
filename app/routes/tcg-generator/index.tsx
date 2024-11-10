@@ -1,7 +1,7 @@
 import type { ActionFunction } from "@remix-run/node";
 import { json, useFetcher } from "@remix-run/react";
 import { Download } from "lucide-react";
-import { generateImage } from "./api/generate";
+import { type PokemonType, generateImage } from "./api/generate";
 import { Button } from "./components/ui/button";
 import { Card, CardContent } from "./components/ui/card";
 import { Input } from "./components/ui/input";
@@ -160,9 +160,9 @@ export const action: ActionFunction = async ({ request }) => {
 		}
 
 		const modelResponse = (await generateImage({
-			promptText: data.prompt,
-			type: data.type,
-			name: data.name,
+			promptText: data.prompt as string,
+			type: data.type as PokemonType,
+			name: data.name as string,
 		})) as unknown[];
 
 		const imageUrl = modelResponse.join("");
