@@ -31,6 +31,10 @@ const pokemonTypes = [
 	"normal",
 ];
 
+export const config = {
+	maxDuration: 45,
+};
+
 export default function ModernElectricalForm() {
 	const fetcher = useFetcher<typeof action>();
 
