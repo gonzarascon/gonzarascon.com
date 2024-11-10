@@ -15,6 +15,7 @@ import {
 } from "./components/ui/select";
 import { Skeleton } from "./components/ui/skeleton";
 import { Textarea } from "./components/ui/textarea";
+import { rateLimit } from "./lib/rate-limit";
 
 const pokemonTypes = [
 	"fire",
@@ -37,6 +38,12 @@ export default function ModernElectricalForm() {
 		fetcher.state === "loading" || fetcher.state === "submitting";
 
 	const imageUrl = fetcher.data?.imageUrl;
+	const remainingRequests =
+		fetcher.data?.remaining === null || fetcher.data?.remaining === undefined
+			? 5
+			: fetcher.data?.remaining;
+
+	const rateLimited = fetcher.data?.status === "rate-limited";
 
 	const handleDownload = () => {
 		posthog.capture("download_clicked", { name: "poke-card" });
@@ -134,9 +141,19 @@ export default function ModernElectricalForm() {
 							<Button type="submit" className="w-full" disabled={isLoading}>
 								Generate
 							</Button>
+							<span className="text-xs text-slate-300">
+								{remainingRequests} request(s) remaining for this session (24hs)
+							</span>
 						</fetcher.Form>
 					</CardContent>
 				</Card>
+				{rateLimited && (
+					<div className="w-full text-red-400 bg-red-100 rounded-xl text-xs text-center p-2 max-w-lg">
+						You have reached the maximum number of requests for this session.
+						<br />
+						Come back tomorrow!
+					</div>
+				)}
 			</div>
 			<div className="w-full max-w-md relative group mx-auto">
 				{isLoading ? (
@@ -178,6 +195,18 @@ export const action: ActionFunction = async ({ request }) => {
 			return json({ errors }, { status: 400 });
 		}
 
+		const { success, remaining } = await rateLimit("ptcg-generator");
+
+		if (!success) {
+			return json(
+				{
+					error: "You are being rate limited. Try again later.",
+					status: "rate-limited",
+				},
+				{ status: 429 },
+			);
+		}
+
 		const modelResponse = (await generateImage({
 			promptText: data.prompt as string,
 			type: data.type as PokemonType,
@@ -190,7 +219,7 @@ export const action: ActionFunction = async ({ request }) => {
 			return json({ error: "Failed to generate image" }, { status: 500 });
 		}
 
-		return json({ imageUrl });
+		return json({ imageUrl, remaining });
 	} catch (error) {
 		console.log(error);
 		return json({ error: (error as Error).message }, { status: 500 });
