@@ -17,6 +17,10 @@ export default defineConfig({
 				return defineRoutes((route) => {
 					route("/", "routes/index.tsx", { index: true });
 					route("/drawy", "routes/drawy/index.tsx", { index: true });
+					route("/tcg-generator", "routes/tcg-generator/layout.tsx", () => {
+						route("", "routes/tcg-generator/index.tsx", { index: true });
+						// route("generate", "routes/tcg-generator/api/generate.ts");
+					});
 				});
 			},
 		}),

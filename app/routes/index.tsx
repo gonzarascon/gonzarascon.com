@@ -10,7 +10,7 @@ export const loader = () => {
 			url: "https://gonzarascon.com",
 			sameAs: [
 				"https://github.com/gonzarascon",
-				"https://substack.com/@gonzarascon",
+				"https://substack.com/@gonzalorascon",
 			],
 		},
 	};
@@ -51,7 +51,10 @@ import { GithubIcon, NewspaperIcon } from "lucide-react";
 import posthog from "posthog-js";
 
 export default function Component() {
-	const projects = [{ title: "Drawy", href: "/drawy" }];
+	const projects = [
+		{ title: "Drawy", href: "/drawy" },
+		{ title: "TCG Generator", href: "/tcg-generator" },
+	];
 
 	return (
 		<div className="min-h-screen bg-gray-100 font-serif">
@@ -62,7 +65,7 @@ export default function Component() {
 
 				<div className="mb-8 flex justify-center space-x-4 font-sans font-light">
 					<a
-						href="https://substack.com/@gonzarascon"
+						href="https://substack.com/@gonzalorascon"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="flex items-center text-gray-600 hover:text-gray-900"
