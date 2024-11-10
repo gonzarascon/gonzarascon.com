@@ -1,6 +1,7 @@
 import type { ActionFunction } from "@remix-run/node";
 import { json, useFetcher } from "@remix-run/react";
 import { Download } from "lucide-react";
+import posthog from "posthog-js";
 import { type PokemonType, generateImage } from "./api/generate";
 import { Button } from "./components/ui/button";
 import { Card, CardContent } from "./components/ui/card";
@@ -38,6 +39,7 @@ export default function ModernElectricalForm() {
 	const imageUrl = fetcher.data?.imageUrl;
 
 	const handleDownload = () => {
+		posthog.capture("download_clicked", { name: "poke-card" });
 		if (!imageUrl) return;
 		const link = document.createElement("a");
 		link.href = imageUrl;
@@ -57,7 +59,13 @@ export default function ModernElectricalForm() {
 
 				<Card className="w-full mb-8 max-w-lg">
 					<CardContent className="pt-6">
-						<fetcher.Form method="post" className="space-y-4">
+						<fetcher.Form
+							method="post"
+							className="space-y-4"
+							onSubmit={() =>
+								posthog.capture("form_submitted", { name: "tcg-generator" })
+							}
+						>
 							<div>
 								<label
 									htmlFor="name"
@@ -72,6 +80,9 @@ export default function ModernElectricalForm() {
 									required
 									className="w-full"
 									placeholder="Enter the monster name here..."
+									onClick={() =>
+										posthog.capture("input_clicked", { name: "name" })
+									}
 								/>
 							</div>
 
@@ -83,7 +94,12 @@ export default function ModernElectricalForm() {
 									Pokemon Type:
 								</label>
 								<Select name="type" required>
-									<SelectTrigger className="w-full">
+									<SelectTrigger
+										className="w-full"
+										onClick={() =>
+											posthog.capture("input_clicked", { name: "type" })
+										}
+									>
 										<SelectValue placeholder="Select a type..." />
 									</SelectTrigger>
 									<SelectContent>
@@ -109,6 +125,9 @@ export default function ModernElectricalForm() {
 									required
 									className="w-full"
 									placeholder="Enter your prompt here..."
+									onClick={() =>
+										posthog.capture("input_clicked", { name: "prompt" })
+									}
 								/>
 							</div>
 
