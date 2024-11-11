@@ -71,25 +71,25 @@ export async function generateImage({
 	const spelledName = name.split("").join(" ");
 
 	const prompt = `
-Create a highly detailed, official-looking Pokémon Trading Card Game (PTCG) card featuring a custom ${type}-type Pokémon. **The most critical element is that the Pokémon's name is displayed clearly and fully at the top center of the card. Do not omit this step under any circumstances.**
+	Create a highly detailed, official-looking Pokémon Trading Card Game (PTCG) card featuring a custom ${type}-type Pokémon. **The critical element is that the Pokémon's name "${name}" appears clearly and fully spelled out at the top center of the card. This placement is mandatory.**
 
 **Card Specifications:**
 
 - **Name of Pokémon:** "${name}" (spelled as: ${spelledName})
-  - **This is mandatory:** The text "${name}" **must be displayed prominently, clearly, and fully spelled out** at the top center of the card without any extra characters, missing letters, or distortions. **It is essential that the name is legible and accurate.**
+  - **Placement and Clarity Requirement:** The text "${name}" **must be displayed at the top center of the card, fully spelled out, with no extra characters or missing letters.** Ensure it is clear, prominent, and the largest text at the top of the card. **This placement and clarity are essential.**
 - **Card Frame and Background Color:** ${pokemonTypeMapping[type].color}
 - **Top Left Corner Text:** "Basic"
 - **Top Right Corner:**
-  - "HP60" displayed.
-  - ${type} type icon next to "HP60", depicted as a ${pokemonTypeMapping[type].energyLogo}.
+  - Display "HP60" clearly.
+  - Include ${type} type icon next to "HP60", shown as a ${pokemonTypeMapping[type].energyLogo}.
 - **Illustration:**
   - An image of ${name}, ${promptText}.
 - **Additional Details:**
-  - **Pokédex Info:** Below the illustration, include "NO. ???", "HT: 1'2\"", "WT: 15 lbs."
+  - **Pokédex Info:** Display "NO. ???", "HT: 1'2\"", "WT: 15 lbs." directly beneath the illustration.
   - **Attack Section:**
     - Attack Name: "Mighty Power"
     - Cost: One dark-type energy icon
-    - Damage: 40 (displayed on the right)
+    - Damage: 40 (aligned to the right)
     - Description: "${name} channels energy, summoning a sudden burst of light shaped like tiny cheese wedges."
   - **Bottom Icons:**
     - Weakness: Fighting-type symbol with "×2"
@@ -101,14 +101,15 @@ Create a highly detailed, official-looking Pokémon Trading Card Game (PTCG) car
     - Bottom Right: "032/165"
     - Centered at the bottom edge: "QUE-SITOS"
 
-**Important Notes:**
+**Key Requirements:**
 
-- **Name Rendering is Crucial:** The **Pokémon's name "${name}" must be the most prominent text on the card**, placed at the top center. It **must be clear, fully spelled out, and without any extra characters, missing letters, or distortions**. **Do not skip this step.**
-- **Accuracy:** Ensure all text is **legible, accurately rendered, and spelled correctly**.
-- **Visual Quality:** The card should look like an official Pokémon card with a high attention to detail.
-- **Compliance:** **Failure to include the Pokémon's name as specified will result in an incorrect image.**
+- **Prominent Name Rendering:** The **name "${name}" must be the largest and clearest text at the top center of the card**. Ensure it is entirely visible, without any distortion, omissions, or extra characters.
+- **Legibility and Accuracy:** All text must be fully legible, accurate, and properly positioned.
+- **Visual Quality:** The card should match the high quality of official Pokémon cards with detailed visuals.
+- **Compliance:** **Failure to display the Pokémon's name as specified will result in an incorrect image.**
 
-**Under no circumstances should the name be omitted or altered. The clarity and accuracy of the name "${name}" are of utmost importance.**
+**Remember: The clarity and correct placement of the Pokémon's name "${name}" at the top center are crucial.**
+
 
 `;
 
