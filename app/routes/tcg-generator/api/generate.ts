@@ -71,15 +71,13 @@ export async function generateImage({
 	const spelledName = name.split("").join(" ");
 
 	const prompt = `
-**Pokémon Trading Card Generation Prompt**
-
-Create a detailed image of an official Pokémon Trading Card Game (PTCG) card featuring a custom ${type}-type Pokémon.
+Create a highly detailed, official-looking Pokémon Trading Card Game (PTCG) card featuring a custom ${type}-type Pokémon. **The most critical element is that the Pokémon's name is displayed clearly and fully at the top center of the card. Do not omit this step under any circumstances.**
 
 **Card Specifications:**
 
 - **Name of Pokémon:** "${name}" (spelled as: ${spelledName})
-  - The name "${name}" must be displayed clearly and fully at the top center of the card without any extra characters or missing letters.
-- **Card Frame and backgorund Color:** ${pokemonTypeMapping[type].color}
+  - **This is mandatory:** The name "${name}" **must be displayed prominently, clearly, and fully spelled out** at the top center of the card without any extra characters, missing letters, or distortions. **It is essential that the name is legible and accurate.**
+- **Card Frame and Background Color:** ${pokemonTypeMapping[type].color}
 - **Top Left Corner Text:** "Basic"
 - **Top Right Corner:**
   - "HP60" displayed.
@@ -105,13 +103,16 @@ Create a detailed image of an official Pokémon Trading Card Game (PTCG) card fe
 
 **Important Notes:**
 
-- **Accuracy:** Ensure all text is legible and accurately rendered.
-- **Name Rendering:** The Pokémon's name "${name}" must be clear, fully spelled out, and without any extra characters or distortions.
-- **Visual Quality:** The card should look like an official Pokémon card with high attention to detail.
+- **Name Rendering is Crucial:** The **Pokémon's name "${name}" must be the most prominent text on the card**, placed at the top center. It **must be clear, fully spelled out, and without any extra characters, missing letters, or distortions**. **Do not skip this step.**
+- **Accuracy:** Ensure all text is **legible, accurately rendered, and spelled correctly**.
+- **Visual Quality:** The card should look like an official Pokémon card with a high attention to detail.
+- **Compliance:** **Failure to include the Pokémon's name as specified will result in an incorrect image.**
+
+**Under no circumstances should the name be omitted or altered. The clarity and accuracy of the name "${name}" are of utmost importance.**
 
 `;
 
-	const modelPattern = /^(\w+\/\w+)(:\w+)?$/;
+	const modelPattern = /^(\w+\/[\w-]+)(:\w+)?$/;
 
 	function isValidModelName(
 		model: string,
