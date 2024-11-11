@@ -76,7 +76,7 @@ Create a highly detailed, official-looking Pokémon Trading Card Game (PTCG) car
 **Card Specifications:**
 
 - **Name of Pokémon:** "${name}" (spelled as: ${spelledName})
-  - **This is mandatory:** The name "${name}" **must be displayed prominently, clearly, and fully spelled out** at the top center of the card without any extra characters, missing letters, or distortions. **It is essential that the name is legible and accurate.**
+  - **This is mandatory:** The text "${name}" **must be displayed prominently, clearly, and fully spelled out** at the top center of the card without any extra characters, missing letters, or distortions. **It is essential that the name is legible and accurate.**
 - **Card Frame and Background Color:** ${pokemonTypeMapping[type].color}
 - **Top Left Corner Text:** "Basic"
 - **Top Right Corner:**
