@@ -20,8 +20,10 @@ const ratelimit = new Ratelimit({
 	limiter: Ratelimit.slidingWindow(5, "86400 s"), // 5 requests per 24 hours
 });
 
-export async function rateLimit(identifier: string) {
-	const { success, limit, remaining } = await ratelimit.limit(identifier);
+export async function rateLimit(identifier: string, uniqueId: string | null) {
+	const { success, limit, remaining } = await ratelimit.limit(
+		`${identifier} ${uniqueId ? `-${uniqueId}` : null}`,
+	);
 
 	return {
 		success,

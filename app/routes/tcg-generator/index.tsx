@@ -2,6 +2,7 @@ import type { ActionFunction } from "@remix-run/node";
 import { json, useFetcher } from "@remix-run/react";
 import { Download } from "lucide-react";
 import posthog from "posthog-js";
+import { getClientIPAddress } from "remix-utils/get-client-ip-address";
 import { type PokemonType, generateImage } from "./api/generate";
 import { Button } from "./components/ui/button";
 import { Card, CardContent } from "./components/ui/card";
@@ -190,6 +191,7 @@ export const action: ActionFunction = async ({ request }) => {
 		const formData = await request.formData();
 		const data = Object.fromEntries(formData.entries());
 		const errors: Record<string, string> = {};
+		const clientIP = getClientIPAddress(request);
 
 		if (!data.prompt) {
 			errors.prompt = "Prompt is required";
@@ -199,7 +201,7 @@ export const action: ActionFunction = async ({ request }) => {
 			return json({ errors }, { status: 400 });
 		}
 
-		const { success, remaining } = await rateLimit("ptcg-generator");
+		const { success, remaining } = await rateLimit("ptcg-generator", clientIP);
 
 		if (!success) {
 			return json(
